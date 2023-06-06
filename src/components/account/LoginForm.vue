@@ -32,7 +32,7 @@
       },
     },
     mounted() {
-      if (localStorage.getItem("loginUserId") == null) {
+      if (localStorage.getItem("loginUserToken") == null) {
         this.isLoggedIn = false;
       } else {
         this.isLoggedIn = true;

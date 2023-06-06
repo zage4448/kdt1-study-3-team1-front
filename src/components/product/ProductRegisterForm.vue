@@ -34,13 +34,12 @@ export default {
         return {
             productName: '상품명을 입력하세요',
             productPrice: 0,
-            accountId: localStorage.getItem('loginUserId')
         }
     },
     methods: {
         onSubmit () {
-            const { productName, productPrice, accountId } = this
-            this.$emit('submit', { productName, productPrice, accountId })
+            const { productName, productPrice} = this
+            this.$emit('submit', { productName, productPrice})
         }
     }
 }

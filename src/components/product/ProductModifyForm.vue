@@ -5,19 +5,19 @@
                 <tr>
                     <td>상품 번호</td>
                     <td>
-                        <input type="text" v-model="product.productId" disable/>
+                        <input type="text" :value="product.productId" disable/>
                     </td>
                 </tr>
                 <tr>
                     <td>상품명</td>
                     <td>
-                        <input type="text" v-model="product.productName"/>
+                        <input type="text" v-model="productName"/>
                     </td>
                 </tr>
                 <tr>
                     <td>상품 가격</td>
                     <td>
-                        <input type="number" v-model="product.productPrice">
+                        <input type="number" v-model="productPrice">
                     </td>
                 </tr>
             </table>
@@ -44,21 +44,18 @@ export default {
     },
     data () {
         return {
-            productName: '',
-            productPrice: '',
-            productId: '',
-            accountId: localStorage.getItem('loginUserId')
+            productName: "",
+            productPrice: "",
         }
     },
     created () {
-        this.productId = this.product.productId
         this.productName = this.product.productName
         this.productPrice = this.product.productPrice
     },
     methods: {
         onSubmit () {
-            const { accountId, productId, productName, productPrice } = this
-            this.$emit('submit', { accountId, productId, productName, productPrice})
+            const { productName, productPrice } = this
+            this.$emit('submit', { productName, productPrice})
         }
     }
 }

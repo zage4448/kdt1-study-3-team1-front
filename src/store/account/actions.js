@@ -20,13 +20,18 @@ export default {
       .then((res) => {
         if (res.data != null) {
           alert("로그인 성공!");
-          let accountId = res.data.accountId;
-          let roleType = res.data.roleType;
-          localStorage.setItem("loginUserId", accountId);
-          localStorage.setItem("loginUserRoleType", roleType)
+          let userToken = res.data;
+          localStorage.setItem("loginUserToken", userToken);
         } else {
           alert("로그인 실패!");
         }
       });
   },
+  requestCheckRoleToSpring({}, userToken) {
+    return axiosInst
+      .post("/account/check-role", { userToken })
+      .then((res) => {
+        return res.data 
+      })
+  }
 };

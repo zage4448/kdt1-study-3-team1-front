@@ -2,7 +2,7 @@
     <nav>
       <v-app-bar color="blue darken-1">
         <v-app-bar-nav-icon @click="navigation_drawer = !navigation_drawer"/>
-        <button @click="goToList">
+        <button @click="goToHome">
         </v-toolbar-title >
         <span style="color: white">
           <v-icon style="color: white">mdi-shopping</v-icon>
@@ -51,7 +51,7 @@
       return {
         navigation_drawer: false,
         isLogin: false,
-        accountId: 0,
+        userToken: '',
       };
     },
     methods: {
@@ -66,15 +66,15 @@
               location.reload()
           })
       },
-      goToList() {
+      goToHome() {
         this.$router.push({
-            name: "ProductListPage"
+            name: "home"
         })
       }
     },
     mounted () {
-      this.accountId = localStorage.getItem("loginUserId")
-      if (this.accountId > 0) {
+      this.userToken = localStorage.getItem("loginUserToken")
+      if (this.userToken != null) {
           this.isLogin = true
       }
     }
