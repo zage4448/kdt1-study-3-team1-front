@@ -1,8 +1,12 @@
 version: "3.7"
 services:
-  frontend:
-    image: ghcr.io/zage4448/kdt1-study-3-team1-front:latest
-    container_name: docker-frontend-deploy-server
+  nginx:
+    image: "nginx:latest"
+    container_name: frontend-deploy-nginx
+    restart: unless-stopped
+    volumes:
+      - /home/ec2-user/fast-front-deploy/conf:/etc/nginx/conf.d
+      - /home/ec2-user/fast-front-deploy/html:/usr/share/nginx/html
     ports:
       - "80:80"
     networks:
