@@ -4,9 +4,14 @@
       <v-btn v-if="!isLoggedIn" color="primary">회원 가입</v-btn>
     </router-link> <br>
     <LoginForm @click="login" />
-    <router-link :to="{ name: 'ProductListPage' }">
-      <v-btn v-if="isLoggedIn" color="primary">상품 보기</v-btn>
-    </router-link> <br>
+    <div class="d-flex">
+      <router-link :to="{ name: 'ProductListPage' }">
+        <v-btn v-if="isLoggedIn" color="primary">상품 보기</v-btn>
+      </router-link> <br>
+      <router-link :to="{ name: 'LoanRequestPage' }">
+        <v-btn v-if="isLoggedIn" color="primary">대출 받기</v-btn>
+      </router-link> <br>
+    </div>
   </div>
 </template>
 

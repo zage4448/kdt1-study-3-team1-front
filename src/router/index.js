@@ -4,6 +4,7 @@ import HomeView from '../views/HomeView.vue'
 import accountRoutes from './account'
 import productRoutes from './product'
 import orderRoutes from './order'
+import loanRoutes from './loan'
 
 Vue.use(VueRouter)
 
@@ -24,7 +25,8 @@ const routes = [
 
   ...accountRoutes,
   ...productRoutes,
-  ...orderRoutes
+  ...orderRoutes,
+  ...loanRoutes
 ]
 
 const router = new VueRouter({

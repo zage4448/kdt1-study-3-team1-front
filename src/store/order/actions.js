@@ -1,11 +1,11 @@
-import axiosInst from '@/utility/axiosInst'
+import axiosInstances from '@/utility/axiosInst'
 import { REQUEST_ORDER_LIST_TO_SPRING } from './mutation-types'
 
 export default {
 
     requestOrderToSpring ({}, payload) {
         const { productId, userToken } = payload
-        return axiosInst.post('/order/order-product', { productId, userToken})
+        return axiosInstances.springAxiosInst.post('/order/order-product', { productId, userToken})
         .then((res) => {
             alert('상품 구매 성공!')
         })
@@ -15,7 +15,7 @@ export default {
     },
 
     requestOrderListToSpring ({commit}, userToken) {
-        return axiosInst.get(`/order/list/${userToken}`)
+        return axiosInstances.springAxiosInst.get(`/order/list/${userToken}`)
         .then((res) => {
             commit(REQUEST_ORDER_LIST_TO_SPRING, res.data)
             return res.data
